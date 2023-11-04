@@ -3,7 +3,6 @@
 
 struct node{
     int data;
-    
     struct node *next;
 };
 typedef struct node cll;
@@ -86,17 +85,36 @@ void delete(int e){
     
     
 }
+int menu()
+{	
+	int ch;
+	printf("\n1 - insert\t2 - Delete\t3 - display\t4 - exit");
+	printf("\nenter your choise :");
+	scanf("%d",&ch);
+	return ch;
+}
+void process()
+{
+	int ch,e;
+	for(ch =menu();ch!=4;ch=menu())
+	{
+		switch(ch)
+		{
+			case 1:
+                    printf("enter the value :");
+                    scanf("%d",&e);
+                    insert(e);
+   		    break;
+            case 2:printf("enter the value :");
+                    scanf("%d",&e);
+                    delete(e);
+		     break;
+	    case 3:disp();
+		}
+	}
+}
 
-int main(){
-    insert(10);
-    insert(20);
-    insert(30);
-    insert(40);
-    
-    disp();
-
-    delete(10);
-    disp();
-    
+int main() {
+    process();
     return 0;
 }
